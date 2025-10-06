@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/DangNhap.css" />
+
+    <title>Đăng Nhập - Hệ Thống Quản Lý Trẻ Em Khu Phố</title>
+
+</head>
+<body>
+    <div class="login-container">
+        <!-- Header -->
+        <div class="login-header">
+            <div class="logo-box">
+                <div class="logo-icon">🏘️</div>
+            </div>
+            <h1>Hệ Thống Quản Lý Trẻ Em</h1>
+            <p>Đăng nhập để tiếp tục</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="login-card">
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                <span>⚠️</span>
+                <span id="errorText"></span>
+            </div>
+
+            <!-- Login Form -->
+            <div>
+                <!-- Username -->
+                <div class="form-group">
+                    <label class="form-label">Tên đăng nhập</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text"
+                               class="form-input"
+                               id="username"
+                               placeholder="Nhập tên đăng nhập"
+                               autocomplete="username" />
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label class="form-label">Mật khẩu</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password"
+                               class="form-input"
+                               id="password"
+                               placeholder="Nhập mật khẩu"
+                               autocomplete="current-password" />
+                        <button type="button" class="password-toggle" id="togglePassword">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" />
+                        <span>Ghi nhớ đăng nhập</span>
+                    </label>
+                    <a href="#" class="forgot-password">Quên mật khẩu?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button class="btn-login" id="loginBtn">
+                    Đăng nhập
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+﻿
+@{
+    ViewBag.Title = "ThemSuKien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/media.css" rel="stylesheet" />
+<style>
+    /* Form Styles */
+    .form-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    .form-section {
+        padding: 30px;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+        .form-section:last-child {
+            border-bottom: none;
+        }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--gray-900);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+    .form-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gray-700);
+    }
+
+        .form-label.required::after {
+            content: ' *';
+            color: var(--danger);
+        }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 12px 16px;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: inherit;
+        transition: all 0.2s;
+    }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+    .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .error-message {
+        font-size: 13px;
+        color: var(--danger);
+        display: none;
+    }
+
+        .error-message.show {
+            display: block;
+        }
+
+    .dynamic-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dynamic-item {
+        background: var(--gray-50);
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid var(--gray-200);
+    }
+
+    .dynamic-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .dynamic-item-title {
+        font-weight: 600;
+        color: var(--gray-900);
+    }
+
+    .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+    .btn-secondary {
+        background: white;
+        color: var(--gray-700);
+        border: 2px solid var(--gray-300);
+    }
+
+    .btn-danger {
+        background: var(--danger);
+        color: white;
+    }
+
+    .btn-add {
+        background: transparent;
+        color: var(--primary);
+        border: 2px dashed var(--primary);
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-remove {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .form-actions {
+        padding: 30px;
+        background: var(--gray-50);
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+
+    .alert {
+        padding: 16px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: none;
+        align-items: center;
+        gap: 12px;
+    }
+
+        .alert.show {
+            display: flex;
+        }
+
+    .alert-success {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+        border: 1px solid var(--success);
+    }
+
+    .alert-danger {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--danger);
+        border: 1px solid var(--danger);
+    }
+</style>
+<div id="alertContainer"></div>
+
+<form id="eventForm" class="form-container" novalidate>
+    <!-- Thông tin cơ bản -->
+    <div class="form-section">
+        <h3 class="section-title">📋 Thông tin cơ bản</h3>
+        <div class="form-grid">
+            <div class="form-group full-width">
+                <label class="form-label required" for="tenSuKien">Tên sự kiện</label>
+                <input type="text" id="tenSuKien" class="form-input"
+                       placeholder="Ví dụ: Ngày hội Trung thu 2025">
+                <span class="error-message" id="errorTenSuKien"></span>
+            </div>
+
+            <div class="form-group full-width">
+                <label class="form-label required" for="moTa">Mô tả</label>
+                <textarea id="moTa" class="form-textarea"
+                          placeholder="Mô tả chi tiết về sự kiện"></textarea>
+                <span class="error-message" id="errorMoTa"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required" for="nguoiChiuTrachNhiem">Người chịu trách nhiệm</label>
+                <input type="text" id="nguoiChiuTrachNhiem" class="form-input" placeholder="Họ và tên">
+                <span class="error-message" id="errorNguoiChiuTrachNhiem"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required" for="diaDiem">Địa điểm</label>
+                <input type="text" id="diaDiem" class="form-input"
+                       placeholder="Ví dụ: Sân trường TH Khu phố 2">
+                <span class="error-message" id="errorDiaDiem"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required" for="ngayBatDau">Ngày bắt đầu</label>
+                <input type="date" id="ngayBatDau" class="form-input">
+                <span class="error-message" id="errorNgayBatDau"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label required" for="ngayKetThuc">Ngày kết thúc</label>
+                <input type="date" id="ngayKetThuc" class="form-input">
+                <span class="error-message" id="errorNgayKetThuc"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="soLuongTinhNguyenVien">Số lượng tình nguyện viên</label>
+                <input type="number" id="soLuongTinhNguyenVien" class="form-input" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="soLuongTreEm">Số lượng trẻ em</label>
+                <input type="number" id="soLuongTreEm" class="form-input" min="0" value="0">
+            </div>
+        </div>
+    </div>
+
+    <!-- Thời gian chi tiết -->
+    <div class="form-section">
+        <h3 class="section-title">⏰ Thời gian chi tiết sự kiện</h3>
+        <div id="thoiGianChiTietList" class="dynamic-list"></div>
+        <button type="button" class="btn btn-add" onclick="addThoiGianChiTiet()">
+            + Thêm thời gian chi tiết
+        </button>
+    </div>
+
+    <!-- Tiết mục -->
+    <div class="form-section">
+        <h3 class="section-title">🎭 Tiết mục sự kiện</h3>
+        <div id="tietMucList" class="dynamic-list"></div>
+        <button type="button" class="btn btn-add" onclick="addTietMuc()">
+            + Thêm tiết mục
+        </button>
+    </div>
+
+    <!-- Chi phí -->
+    <div class="form-section">
+        <h3 class="section-title">💰 Chi phí sự kiện</h3>
+        <div id="chiPhiList" class="dynamic-list"></div>
+        <button type="button" class="btn btn-add" onclick="addChiPhi()">
+            + Thêm khoản chi
+        </button>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='sukien.html'">
+            Hủy bỏ
+        </button>
+        <button type="submit" class="btn btn-primary">
+            Lưu sự kiện
+        </button>
+    </div>
+</form>

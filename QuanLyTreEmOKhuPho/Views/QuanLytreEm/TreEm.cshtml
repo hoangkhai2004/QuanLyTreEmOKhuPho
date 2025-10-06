@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "TreEm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/TreEm.css" />
+    <title>Quản Lý Trẻ Em - Hệ Thống Quản Lý Khu Phố</title>
+
+</head>
+<body>
+    <div class="filter-section">
+        <div class="filter-header">
+            <h3 class="filter-title">🔍 Bộ lọc tìm kiếm</h3>
+            <button class="btn btn-primary btn-sm" onclick="applyFilters()">Áp dụng</button>
+           
+        </div>
+        <div class="filter-grid">
+            <div class="form-group search-bar">
+                <label class="form-label">Tìm kiếm</label>
+                <span class="search-icon">🔍</span>
+                <input type="text" class="form-control" placeholder="Tìm theo tên, ID..." id="searchInput">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Khu phố</label>
+                <select class="form-control" id="filterKhuPho">
+                    <option value="">Tất cả khu phố</option>
+                    <option value="kp1">Khu phố 1</option>
+                    <option value="kp2">Khu phố 2</option>
+                    <option value="kp3">Khu phố 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Giới tính</label>
+                <select class="form-control" id="filterGender">
+                    <option value="">Tất cả</option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+      
+        <div class="table-header">
+            <h3 class="table-title">Danh sách trẻ em (<span id="totalChildren">8</span>)</h3>
+            <div class="table-actions">
+                <button class="btn-icon">📊</button>
+                <button class="btn-icon">🖨️</button>
+                <a href="@Url.Action("ThemTreEm_v1", "QuanLyTreEm")" class="btn btn-primary">
+                    + Thêm trẻ em mới
+                </a>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Thông tin trẻ</th>
+                    <th>Khu phố</th>
+                    <th>Hoàn cảnh</th>
+                    <th>Học lực</th>
+                    <th>Ưu tiên</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="childrenTableBody"></tbody>
+        </table>
+        <div class="pagination">
+            <div class="pagination-info">Hiển thị <strong>1-8</strong> trong tổng số <strong>8</strong> trẻ em</div>
+            <div class="pagination-buttons">
+                <button class="page-btn">❮</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="childDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Chi tiết hồ sơ trẻ em</h3>
+                <button class="close-btn" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Thông tin chi tiết trẻ em sẽ hiển thị ở đây</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
