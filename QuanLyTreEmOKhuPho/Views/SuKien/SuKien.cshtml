@@ -3,520 +3,10 @@
     ViewBag.Title = "SuKien";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/media.css" rel="stylesheet" />
+<link href="~/Content/css/media.css" rel="stylesheet" />
+<link href="~/Content/css/SuKien.css" rel="stylesheet" />
 
-<style>
-    .page-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        margin-bottom: 25px;
-        color: white;
-    }
 
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .page-title h1 {
-        font-size: 32px;
-        margin-bottom: 8px;
-    }
-
-    .page-title p {
-        opacity: 0.9;
-        font-size: 15px;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 8px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .btn-primary {
-        background: white;
-        color: #667eea;
-    }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-
-    /* Filter Tabs */
-    .filter-tabs {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        margin-bottom: 25px;
-        display: flex;
-        gap: 10px;
-    }
-
-    .filter-tab {
-        padding: 10px 20px;
-        border: 2px solid var(--gray-200);
-        background: white;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-weight: 600;
-        color: var(--gray-700);
-    }
-
-        .filter-tab:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .filter-tab.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-    /* Event Cards Grid */
-    .events-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 25px;
-    }
-
-    .event-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        transition: all 0.3s;
-        cursor: pointer;
-    }
-
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-
-    .event-image {
-        height: 180px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 60px;
-        position: relative;
-    }
-
-    .event-status {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        background: white;
-    }
-
-    .status-upcoming {
-        color: var(--primary);
-    }
-
-    .status-ongoing {
-        color: var(--success);
-    }
-
-    .status-completed {
-        color: var(--gray-600);
-    }
-
-    .event-content {
-        padding: 20px;
-    }
-
-    .event-title {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--gray-900);
-        margin-bottom: 12px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .event-meta {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-
-    .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 14px;
-        color: var(--gray-600);
-    }
-
-    .meta-icon {
-        width: 20px;
-        text-align: center;
-    }
-
-    .event-stats {
-        display: flex;
-        gap: 20px;
-        padding-top: 15px;
-        border-top: 1px solid var(--gray-200);
-    }
-
-    .stat-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: var(--gray-700);
-    }
-
-    .stat-value {
-        font-weight: 700;
-        color: var(--primary);
-    }
-
-    .event-actions {
-        display: flex;
-        gap: 8px;
-        margin-top: 15px;
-    }
-
-    .btn-sm {
-        padding: 8px 16px;
-        font-size: 12px;
-        border-radius: 6px;
-        flex: 1;
-    }
-
-    .btn-view {
-        background: var(--primary);
-        color: white;
-    }
-
-    .btn-edit {
-        background: var(--warning);
-        color: white;
-    }
-
-    /* Modal */
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.6);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-
-        .modal.active {
-            display: flex;
-        }
-
-    .modal-content {
-        background: white;
-        border-radius: 16px;
-        width: 100%;
-        max-width: 1000px;
-        max-height: 90vh;
-        overflow-y: auto;
-        animation: modalSlideIn 0.3s ease;
-    }
-
-
-
-    .modal-header {
-        padding: 25px 30px;
-        border-bottom: 1px solid var(--gray-200);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-    }
-
-    .modal-title {
-        font-size: 24px;
-        font-weight: 600;
-    }
-
-    .close-btn {
-        width: 36px;
-        height: 36px;
-        border: none;
-        background: rgba(255,255,255,0.2);
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 20px;
-        color: white;
-        transition: all 0.2s;
-    }
-
-        .close-btn:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-    .modal-body {
-        padding: 30px;
-    }
-
-    .tabs {
-        display: flex;
-        gap: 10px;
-        border-bottom: 2px solid var(--gray-200);
-        margin-bottom: 25px;
-    }
-
-    .tab {
-        padding: 12px 20px;
-        border: none;
-        background: none;
-        color: var(--gray-600);
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        border-bottom: 3px solid transparent;
-        margin-bottom: -2px;
-        transition: all 0.2s;
-    }
-
-        .tab:hover {
-            color: var(--primary);
-        }
-
-        .tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-    .tab-content {
-        display: none;
-    }
-
-        .tab-content.active {
-            display: block;
-        }
-
-    .info-section {
-        margin-bottom: 30px;
-    }
-
-    .section-title {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--gray-900);
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .info-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .info-item {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .info-label {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--gray-600);
-    }
-
-    .info-value {
-        font-size: 15px;
-        color: var(--gray-900);
-        font-weight: 500;
-    }
-
-    /* Registration Table */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-    }
-
-    thead {
-        background: var(--gray-50);
-    }
-
-    th {
-        padding: 12px 15px;
-        text-align: left;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--gray-700);
-        text-transform: uppercase;
-    }
-
-    td {
-        padding: 15px;
-        border-top: 1px solid var(--gray-200);
-        font-size: 14px;
-    }
-
-    tbody tr:hover {
-        background: var(--gray-50);
-    }
-
-    .badge {
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        display: inline-block;
-    }
-
-    .badge-pending {
-        background: rgba(245, 158, 11, 0.1);
-        color: var(--warning);
-    }
-
-    .badge-approved {
-        background: rgba(16, 185, 129, 0.1);
-        color: var(--success);
-    }
-
-    .badge-rejected {
-        background: rgba(239, 68, 68, 0.1);
-        color: var(--danger);
-    }
-
-    .action-btn-group {
-        display: flex;
-        gap: 5px;
-    }
-
-    .btn-approve {
-        background: var(--success);
-        color: white;
-        padding: 5px 12px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 12px;
-    }
-
-    .btn-reject {
-        background: var(--danger);
-        color: white;
-        padding: 5px 12px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 12px;
-    }
-
-    /* Program Timeline */
-    .program-item {
-        display: flex;
-        gap: 15px;
-        padding: 15px;
-        background: var(--gray-50);
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
-
-    .program-time {
-        font-weight: 700;
-        color: var(--primary);
-        min-width: 80px;
-    }
-
-    .program-content {
-        flex: 1;
-    }
-
-    .program-title {
-        font-weight: 600;
-        color: var(--gray-900);
-        margin-bottom: 5px;
-    }
-
-    .program-desc {
-        font-size: 13px;
-        color: var(--gray-600);
-    }
-
-    /* Expense Chart */
-    .expense-chart {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .expense-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .expense-label {
-        flex: 1;
-        font-weight: 500;
-    }
-
-    .expense-bar {
-        flex: 2;
-        height: 30px;
-        background: var(--gray-200);
-        border-radius: 15px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .expense-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--primary), #3b82f6);
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding-right: 10px;
-        color: white;
-        font-size: 12px;
-        font-weight: 700;
-        transition: width 0.5s ease;
-    }
-
-    .expense-amount {
-        font-weight: 700;
-        color: var(--gray-900);
-        min-width: 120px;
-        text-align: right;
-    }
-    }
-</style>
 
 
 <!-- Page Header -->
@@ -550,3 +40,280 @@
 
 <!-- Events Grid -->
 <div class="events-grid" id="eventsGrid"></div>
+
+
+<script>
+        // Sample events data
+        const eventsData = [
+            {
+                id: 1,
+                title: 'Ngày hội Trung thu 2025',
+                date: '15/10/2025',
+                time: '08:00 AM',
+                location: 'Sân trường TH Khu phố 2',
+                status: 'upcoming',
+                volunteers: 25,
+                children: 120,
+                icon: '🏮'
+            },
+            {
+                id: 2,
+                title: 'Khám sức khỏe định kỳ',
+                date: '22/10/2025',
+                time: '07:30 AM',
+                location: 'Trạm y tế Khu phố 5',
+                status: 'upcoming',
+                volunteers: 15,
+                children: 85,
+                icon: '🏥'
+            },
+            {
+                id: 3,
+                title: 'Trao học bổng học kỳ I',
+                date: '28/10/2025',
+                time: '09:00 AM',
+                location: 'Hội trường Ủy ban',
+                status: 'upcoming',
+                volunteers: 10,
+                children: 45,
+                icon: '🎓'
+            },
+            {
+                id: 4,
+                title: 'Ngày hội thể thao',
+                date: '05/10/2025',
+                time: '08:00 AM',
+                location: 'Sân vận động KP',
+                status: 'ongoing',
+                volunteers: 30,
+                children: 150,
+                icon: '⚽'
+            },
+            {
+                id: 5,
+                title: 'Workshop kỹ năng sống',
+                date: '04/10/2025',
+                time: '14:00 PM',
+                location: 'Trung tâm văn hóa',
+                status: 'ongoing',
+                volunteers: 8,
+                children: 40,
+                icon: '📚'
+            },
+            {
+                id: 6,
+                title: 'Ngày hội môi trường',
+                date: '15/09/2025',
+                time: '07:00 AM',
+                location: 'Công viên KP2',
+                status: 'completed',
+                volunteers: 35,
+                children: 180,
+                icon: '🌱'
+            },
+            {
+                id: 7,
+                title: 'Đêm hội trăng rằm tháng 8',
+                date: '01/09/2025',
+                time: '18:00 PM',
+                location: 'Sân trường TH KP1',
+                status: 'completed',
+                volunteers: 20,
+                children: 100,
+                icon: '🌕'
+            },
+            {
+                id: 8,
+                title: 'Hè vui khỏe 2025',
+                date: '15/07/2025',
+                time: '08:00 AM',
+                location: 'Hồ bơi KP',
+                status: 'completed',
+                volunteers: 25,
+                children: 95,
+                icon: '🏊'
+            }
+        ];
+
+        // Render events
+        function renderEvents(filter = 'all') {
+            const grid = document.getElementById('eventsGrid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all'
+                ? eventsData
+                : eventsData.filter(e => e.status === filter);
+
+            filtered.forEach(event => {
+                const statusText = {
+                    'upcoming': 'Sắp diễn ra',
+                    'ongoing': 'Đang diễn ra',
+                    'completed': 'Đã kết thúc'
+                }[event.status];
+
+                const statusClass = {
+                    'upcoming': 'status-upcoming',
+                    'ongoing': 'status-ongoing',
+                    'completed': 'status-completed'
+                }[event.status];
+
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                card.onclick = () => viewEvent(event.id);
+
+                card.innerHTML = `
+                    <div class="event-image">
+                        <span style="font-size: 80px;">${event.icon}</span>
+                        <div class="event-status ${statusClass}">${statusText}</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">${event.title}</h3>
+                        <div class="event-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span>${event.date} - ${event.time}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📍</span>
+                                <span>${event.location}</span>
+                            </div>
+                        </div>
+                        <div class="event-stats">
+                            <div class="stat-item">
+                                <span>👥</span>
+                                <span><span class="stat-value">${event.volunteers}</span> TNV</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>👶</span>
+                                <span><span class="stat-value">${event.children}</span> Trẻ em</span>
+                            </div>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-sm btn-view">👁️ Xem chi tiết</button>
+                            <button class="btn btn-sm btn-edit" onclick="event.stopPropagation(); editEvent(${event.id})">✏️ Sửa</button>
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter events
+        function filterEvents(status) {
+            const tabs = document.querySelectorAll('.filter-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            renderEvents(status);
+        }
+
+        // View event detail
+        function viewEvent(id) {
+            document.getElementById('eventDetailModal').classList.add('active');
+            showNotification('Đang tải thông tin sự kiện...', 'info');
+        }
+
+        // Edit event
+        function editEvent(id) {
+            showNotification(`Chỉnh sửa sự kiện #${id}`, 'info');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('eventDetailModal').classList.remove('active');
+        }
+
+        // Open create event modal
+        function openCreateEventModal() {
+            showNotification('Mở form tạo sự kiện mới', 'info');
+        }
+
+        // Switch tabs
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            const icons = { success: '✓', warning: '⚠', info: 'ℹ', danger: '✕' };
+            const colors = {
+                success: 'var(--success)',
+                warning: 'var(--warning)',
+                info: 'var(--primary)',
+                danger: 'var(--danger)'
+            };
+
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 20px;">${icons[type]}</span>
+                    <span>${message}</span>
+                </div>
+            `;
+
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                z-index: 10001;
+                animation: slideIn 0.3s ease;
+                border-left: 4px solid ${colors[type]};
+                max-width: 400px;
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @@keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @@keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Close modal on outside click
+        document.getElementById('eventDetailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        renderEvents();
+
+        // Animate expense bars
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.expense-fill').forEach(fill => {
+                    const width = fill.style.width;
+                    fill.style.width = '0';
+                    setTimeout(() => {
+                        fill.style.width = width;
+                    }, 100);
+                });
+            }, 500);
+        });
+</script>
