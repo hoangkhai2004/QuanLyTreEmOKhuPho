@@ -388,7 +388,7 @@
     }
 </style>
 <div class="alert alert-warning">
-    <span>⚠️</span>
+    <span><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning);"></i></span>
     <div>
         <strong>Lưu ý bảo mật:</strong> Chỉ quản trị viên cấp cao mới có quyền truy cập trang này. Vui lòng cẩn thận khi thao tác với tài khoản người dùng.
     </div>
@@ -398,7 +398,7 @@
     <div class="stat-card primary">
         <div class="stat-header">
             <div class="stat-title">Tổng người dùng</div>
-            <div class="stat-icon">👥</div>
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
         </div>
         <div class="stat-value">248</div>
         <div class="stat-change">12 Admin, 186 TNV, 50 Phụ huynh</div>
@@ -407,7 +407,7 @@
     <div class="stat-card success">
         <div class="stat-header">
             <div class="stat-title">Đang hoạt động</div>
-            <div class="stat-icon">✅</div>
+            <div class="stat-icon"><i class="fa-solid fa-user-check"></i></div>
         </div>
         <div class="stat-value">235</div>
         <div class="stat-change">94.8% tổng số tài khoản</div>
@@ -416,7 +416,7 @@
     <div class="stat-card warning">
         <div class="stat-header">
             <div class="stat-title">Chưa kích hoạt</div>
-            <div class="stat-icon">⏳</div>
+            <div class="stat-icon"><i class="fa-solid fa-user-clock"></i></div>
         </div>
         <div class="stat-value">8</div>
         <div class="stat-change">Tài khoản mới tạo</div>
@@ -425,7 +425,7 @@
     <div class="stat-card danger">
         <div class="stat-header">
             <div class="stat-title">Bị khóa</div>
-            <div class="stat-icon">🔒</div>
+            <div class="stat-icon"><i class="fa-solid fa-user-lock"></i></div>
         </div>
         <div class="stat-value">5</div>
         <div class="stat-change">Vi phạm quy định</div>
@@ -436,14 +436,14 @@
     <div class="card-header">
         <h3 class="card-title">Danh sách người dùng</h3>
         <div style="display: flex; gap: 10px;">
-            <button class="btn btn-success" onclick="openImportModal()">📥 Import Excel</button>
-            <button class="btn btn-success" onclick="openCreateUserModal()">+ Tạo tài khoản</button>
-            <button class="btn btn-primary" onclick="resetAllPasswords()">🔄 Reset tất cả mật khẩu</button>
+            <button class="btn btn-success" onclick="openImportModal()"><i class="fa-solid fa-upload"></i> Import Excel</button>
+            <button class="btn btn-success" onclick="openCreateUserModal()"><i class="fa-solid fa-circle-plus"></i> Tạo tài khoản</button>
+            <button class="btn btn-primary" onclick="resetAllPasswords()"><i class="fa-solid fa-arrows-rotate"></i> Reset tất cả mật khẩu</button>
         </div>
     </div>
 
     <div class="alert alert-info">
-        <span>ℹ️</span>
+        <span><i class="fa-solid fa-circle-info" style="color: var(--primary);"></i></span>
         <div>
             
             <strong>Mật khẩu mặc định:</strong> <code>MatKhau123</code> (Người dùng nên đổi mật khẩu sau lần đăng nhập đầu tiên)

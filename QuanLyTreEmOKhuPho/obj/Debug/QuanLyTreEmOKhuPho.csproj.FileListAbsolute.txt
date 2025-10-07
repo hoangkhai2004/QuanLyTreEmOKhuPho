@@ -70,3 +70,26 @@ D:\Tong_hop_Tieu_Luan\Đồ án\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\
 D:\Tong_hop_Tieu_Luan\Đồ án\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTr.320A46A9.Up2Date
 D:\Tong_hop_Tieu_Luan\Đồ án\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTreEmOKhuPho.dll
 D:\Tong_hop_Tieu_Luan\Đồ án\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTreEmOKhuPho.pdb
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\QuanLyTreEmOKhuPho.dll.config
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\QuanLyTreEmOKhuPho.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\QuanLyTreEmOKhuPho.pdb
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\Microsoft.Web.Infrastructure.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Helpers.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Mvc.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Razor.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Webpages.Deployment.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Webpages.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Webpages.Razor.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Razor.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Webpages.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Webpages.Deployment.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Webpages.Razor.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Helpers.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\System.Web.Mvc.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTreEmOKhuPho.csproj.AssemblyReference.cache
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTreEmOKhuPho.csproj.CoreCompileInputs.cache
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTr.320A46A9.Up2Date
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTreEmOKhuPho.dll
+D:\File\HK7\KL_CN\project\10_07_2025\QuanLyTreEmOKhuPho\QuanLyTreEmOKhuPho\obj\Debug\QuanLyTreEmOKhuPho.pdb
